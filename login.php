@@ -29,14 +29,22 @@
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <?php
+        if (isset($_GET['result'])) {
+            $bodyclass = "red";
+        } else {
+            $bodyclass = "cyan";
+        }
+    ?>
 </head>
 
-<body class="cyan">
+
+<body class="<?php echo $bodyclass?>">
 
 
     <!-- Form Section -->
     <div class="container">
-        <form action="" method="POST">
+        <form action="php/login-backend.php" method="POST">
             <!-- Change The Form Method From Here-->
             <div class="card-panel grey lighten-5 z-depth-1">
                 <div class="row">
@@ -56,7 +64,7 @@
                         </div>
 
                         <div class="col s12 center">
-                            <button class="btn waves-effect waves-light" type="submit" name="action">Login
+                            <button class="btn waves-effect waves-light" type="submit" name="submit">Login
                                 <i class="material-icons right">login</i>
                             </button>
                         </div>
