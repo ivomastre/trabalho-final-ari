@@ -5,46 +5,119 @@
     <!--Import Google Icon Font-->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" media="screen,projection" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
     <link rel="stylesheet" href="style.css">
     <!-- QUERYMINE Page Center Css -->
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.datepicker');
+            var instances = M.Datepicker.init(elems);
+            var elems1 = document.querySelectorAll('.sidenav');
+            var instances1 = M.Sidenav.init(elems1);
+        });
+        
+    </script>
 </head>
 
 
 <body class="<?php echo $bodyclass ?>">
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#!" class="brand-logo">Lavadeiras</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            
+            <ul class="right hide-on-med-and-down">
+                <li class = "active"><a href="index.php">Home</a></li>
+                <li><a href="stats.php">Statistics</a></li>
+            </ul>
+        </div>
+        
+    </nav>
+    <ul class="sidenav" id="mobile-demo">
+        <li class = "active"><a  href="index.php">Home</a></li>
+        <li><a href="stats.php">Statistics</a></li>
+    </ul>
+    
+
+    
+      
+    
 
 
-    <!-- Form Section -->
-    <div class="container">
-        <table class="responsive-table highlight">
+    <div class="container p-t-5">
+        <table class="z-depth-1 responsive-table highlight">
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Item Name</th>
-                    <th>Item Price</th>
+                    <th>Client Name</th>
+                    <th>Date</th>
+                    <th>Quantity</th>
+                    <th>Value</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
 
             <tbody>
                 <tr>
-                    <td>Alvin</td>
-                    <td>Eclair</td>
-                    <td>$0.87</td>
-                </tr>
-                <tr>
-                    <td>Alan</td>
-                    <td>Jellybean</td>
-                    <td>$3.76</td>
-                </tr>
-                <tr>
                     <td>Jonathan</td>
-                    <td>Lollipop</td>
+                    <td>07/05/2020</td>
+                    <td>1</td>
                     <td>$7.00</td>
+                    <td>
+                        <a href="/php/change.php?id=" class="material-icons prefix">settings</a>
+                        <a href="/php/delete.php?id=" class="material-icons prefix">delete</a>
+                    </td>
+                </tr>
+                <tr>
+                    <div class="row">
+                        <form action="./php/add-lavadas.php" method="GET">
+                            <div class="row">
+                                <td>
+                                    <div class="row">
+                                        <div class="input-field col s4 m12">
+                                            <input id="name" type="text" name="name" class="validate">
+                                            <label for="name">Client Name</label>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="row">
+                                        <div class="input-field col s4 m12">
+                                            <input id="date" type="datetime-local" name="date" class="validate">
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="row">
+                                        <div class="input-field col s4 m12">
+                                            <input id="quantity" type="text" name="quantity" class="validate">
+                                            <label for="quantity">Quantity</label>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="row">
+                                        <div class="input-field col s4 m12">
+                                            <input id="value" type="text" name="value" class="validate">
+                                            <label for="value">Value</label>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td><div class="row">
+                                        <div class="input-field col s4 m12">
+                                            <button class="waves-effect waves-light btn-small" type="submit" name="submit">Submit
+                                                <i class="material-icons right">send</i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </td>
+                            </div>
+                        </form>
+                    </div>
                 </tr>
             </tbody>
         </table>
@@ -56,8 +129,8 @@
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js">
     </script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js">
-    </script>
+
+
 </body>
 
 </html>

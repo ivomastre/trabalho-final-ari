@@ -36,7 +36,7 @@
 
     <!-- Form Section -->
     <div class="container">
-        <form action="php/register-count.php" method="POST">
+        <form action="php/register-backend.php" method="POST">
             <!-- Change The Form Method From Here-->
             <div class="card-panel grey lighten-5 z-depth-1">
                 <div class="row">
