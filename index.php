@@ -22,10 +22,7 @@
         });
         
     </script>
-    <?php
-        include("connect-db.php");
-        
-    ?>
+    
 </head>
 
 
@@ -66,15 +63,33 @@
             </thead>
 
             <tbody>
+            <?php
+                include("./php/connect-db.php");
+                session_start();
+                $LAVD_ID = $_SESSION["id"];
+
+                $result = exec_query("SELECT LAV_CODIGO, LAV_CLIENTENOME, LAV_DATA, LAV_QUANTITY, LAV_VALOR FROM TB_LAVADAS WHERE LAV_LAVD_CODIGO = $LAVD_ID");
+                while($row = $result->fetch_array()){
+                    $name = $row['LAV_CLIENTENOME'];
+                    $date = $row['LAV_DATA'];
+                    $quantity = $row['LAV_QUANTITY'];
+                    $value = $row['LAV_VALOR'];
+                    $id = $row['LAV_CODIGO'];
+                    echo "<tr>";
+                    echo "<td>$name</td>";
+                    echo "<td>$date</td>";
+                    echo "<td>$quantity</td>";
+                    echo "<td>$value</td>";
+                    echo "<td>
+                            <a href='/php/change.php?id=$id' class='material-icons prefix'>settings</a>
+                            <a href='/php/delete.php?id=$id' class='material-icons prefix'>delete</a>
+                        </td>";
+                    echo "</td>";
+                }   
+            ?>
                 <tr>
-                    <td>Jonathan</td>
-                    <td>07/05/2020</td>
-                    <td>1</td>
-                    <td>$7.00</td>
-                    <td>
-                        <a href="/php/change.php?id=" class="material-icons prefix">settings</a>
-                        <a href="/php/delete.php?id=" class="material-icons prefix">delete</a>
-                    </td>
+
+                    
                 </tr>
                 <tr>
                     <div class="row">
