@@ -2,6 +2,12 @@
 <html>
 
 <head>
+    <?php
+        include("./php/session-verify.php");
+        if(is_session_active()){
+            header("Location: ./index.php");
+        };
+    ?>
     <!--Import Google Icon Font-->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
