@@ -22,6 +22,10 @@
         });
         
     </script>
+    <?php
+        include("connect-db.php");
+        
+    ?>
 </head>
 
 
@@ -74,7 +78,7 @@
                 </tr>
                 <tr>
                     <div class="row">
-                        <form action="./php/add-lavadas.php" method="GET">
+                        <form action="./php/add-lavadas.php" method="POST">
                             <div class="row">
                                 <td>
                                     <div class="row">
@@ -94,7 +98,7 @@
                                 <td>
                                     <div class="row">
                                         <div class="input-field col s4 m12">
-                                            <input id="quantity" type="text" name="quantity" class="validate">
+                                            <input id="quantity" type="number" name="quantity" class="validate">
                                             <label for="quantity">Quantity</label>
                                         </div>
                                     </div>
@@ -102,7 +106,7 @@
                                 <td>
                                     <div class="row">
                                         <div class="input-field col s4 m12">
-                                            <input id="value" type="text" name="value" class="validate">
+                                            <input id="value" type="number" step="any" name="value" class="validate">
                                             <label for="value">Value</label>
                                         </div>
                                     </div>
