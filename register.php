@@ -4,7 +4,7 @@
 <head>
     <?php
         include("./php/session-verify.php");
-        if(!is_session_active()){
+        if(is_session_active()){
             header("Location: ./index.php");
         };
     ?>

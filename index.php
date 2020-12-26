@@ -85,8 +85,8 @@
                     echo "<td>$quantity</td>";
                     echo "<td>$value</td>";
                     echo "<td>
-                            <a href='/php/change.php?id=$id' class='material-icons prefix'>settings</a>
-                            <a href='/php/delete.php?id=$id' class='material-icons prefix'>delete</a>
+                            <a href='./php/change-lava.php?id=$id' class='material-icons prefix'>settings</a>
+                            <a href='./php/delete-lavadas.php?id=$id' class='material-icons prefix'>delete</a>
                         </td>";
                     echo "</td>";
                 }   
