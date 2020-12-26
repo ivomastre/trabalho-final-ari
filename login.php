@@ -78,7 +78,6 @@
                         <div class="col s12 center p-t-5">
 
                             <a class="btn waves-effect waves-light" href="register.php">Create account
-
                                 <i class="material-icons right">add_box</i>
                             </a>
                         </div>

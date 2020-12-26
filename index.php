@@ -21,10 +21,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.modal');
+            var instances = M.Modal.init(elems);
             var elems1 = document.querySelectorAll('.sidenav');
             var instances1 = M.Sidenav.init(elems1);
         });
-        
     </script>
     
 </head>
@@ -79,17 +80,66 @@
                     $quantity = $row['LAV_QUANTITY'];
                     $value = $row['LAV_VALOR'];
                     $id = $row['LAV_CODIGO'];
+                    if(isset($_GET['id_change']) &&	$_GET['id_change']== $id){
+                        echo"
+                        <tr>
+                        <form action='./php/change-lavadas.php' method='POST'>
+                            <div class='row'>
+                                <td>
+                                    <div class='row'>
+                                        <div class='input-field col s4 m12'>
+                                            <input id='name2' type='text' name='name_change' class='validate'>
+                                            <label for='name2'>Client Name</label>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class='row'>
+                                        <div class='input-field col s4 m12'>
+                                            <input id='date2' type='datetime-local' name='date_change' class='validate'>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class='row'>
+                                        <div class='input-field col s4 m12'>
+                                            <input id='quantity2' type='number' name='quantity_change' class='validate'>
+                                            <label for='quantity2'>Quantity</label>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class='row'>
+                                        <div class='input-field col s4 m12'>
+                                            <input id='value2' type='number' step='any' name='value_change' class='validate'>
+                                            <label for='value2'>Value</label>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <button type='submit' name='submit_change'><i class='material-icons prefix'>check</i></button>
+                                    <a href='./index.php' class='material-icons prefix'>close</a>
+                                </td>
+                            </div>
+                        </form>";
+                        echo "</tr>";
+                        continue;
+                    }
                     echo "<tr>";
                     echo "<td>$name</td>";
                     echo "<td>$date</td>";
                     echo "<td>$quantity</td>";
                     echo "<td>$value</td>";
                     echo "<td>
-                            <a href='./php/change-lava.php?id=$id' class='material-icons prefix'>settings</a>
+                            <a href='?id_change=$id' class='material-icons prefix modal-trigger'>settings</a>
                             <a href='./php/delete-lavadas.php?id=$id' class='material-icons prefix'>delete</a>
                         </td>";
-                    echo "</td>";
+
+                    echo "</tr>";
                 }   
+            ?>
+            <?php
+            
             ?>
                 <tr>
 
@@ -145,15 +195,9 @@
             </tbody>
         </table>
     </div>
-
-
-
-
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js">
     </script>
-
-
 </body>
 
 </html>
