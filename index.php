@@ -83,7 +83,7 @@
                     if(isset($_GET['id_change']) &&	$_GET['id_change']== $id){
                         echo"
                         <tr>
-                        <form action='./php/change-lavadas.php' method='POST'>
+                        <form action='./php/change-lavadas.php?id=$id' method='POST'>
                             <div class='row'>
                                 <td>
                                     <div class='row'>
