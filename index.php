@@ -21,8 +21,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            var elems = document.querySelectorAll('.datepicker');
-            var instances = M.Datepicker.init(elems);
             var elems1 = document.querySelectorAll('.sidenav');
             var instances1 = M.Sidenav.init(elems1);
         });
