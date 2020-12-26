@@ -35,7 +35,7 @@
     <nav>
         <div class="nav-wrapper">
             <a href="#!" class="brand-logo">
-                <?php 
+            <?php 
                     include("./php/connect-db.php");
                     session_start();
                     $LAVD_ID = $_SESSION["id"];
@@ -84,7 +84,7 @@
 
             <tbody>
             <?php
-                include("./php/connect-db.php");
+                
                 session_start();
                 $LAVD_ID = $_SESSION["id"];
 
@@ -156,10 +156,7 @@
             <?php
             
             ?>
-                <tr>
-
-                    
-                </tr>
+                
                 <tr>
                     <div class="row">
                         <form action="./php/add-lavadas.php" method="POST">
