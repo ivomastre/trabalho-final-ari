@@ -40,6 +40,7 @@
             <ul class="right hide-on-med-and-down">
                 <li class = "active"><a href="index.php">Home</a></li>
                 <li><a href="stats.php">Statistics</a></li>
+                <li><a href='./php/logout.php' class='material-icons prefix'>logout</a></li>
             </ul>
         </div>
         
@@ -47,6 +48,8 @@
     <ul class="sidenav" id="mobile-demo">
         <li class = "active"><a  href="index.php">Home</a></li>
         <li><a href="stats.php">Statistics</a></li>
+        <li><a href='./php/logout.php' class='material-icons prefix'>logout</a></li>
+
     </ul>
     
 
