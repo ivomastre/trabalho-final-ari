@@ -34,7 +34,19 @@
 <body class="<?php echo $bodyclass ?>">
     <nav>
         <div class="nav-wrapper">
-            <a href="#!" class="brand-logo">Lavadeiras</a>
+            <a href="#!" class="brand-logo">
+                <?php 
+                    include("./php/connect-db.php");
+                    session_start();
+                    $LAVD_ID = $_SESSION["id"];
+    
+                    $result = exec_query("SELECT LAVD_NOME FROM TB_LAVADEIRAS WHERE LAVD_CODIGO = $LAVD_ID");
+                    while($row = $result->fetch_array()){
+                        $name = $row['LAVD_NOME'];
+                        echo "Olá, $name";
+                    };
+                ?>
+            </a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             
             <ul class="right hide-on-med-and-down">
