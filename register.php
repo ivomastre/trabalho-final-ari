@@ -3,10 +3,10 @@
 
 <head>
     <?php
-        include("./php/session-verify.php");
-        if(is_session_active()){
-            header("Location: ./index.php");
-        };
+    include("./php/session-verify.php");
+    if (is_session_active()) {
+        header("Location: ./index.php");
+    };
     ?>
     <!--Import Google Icon Font-->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -42,7 +42,7 @@
 
     <!-- Form Section -->
     <div class="container">
-        <form action="php/register-backend.php" method="POST">
+        <form enctype="multipart/form-data" action="php/register-backend.php" method="POST">
             <!-- Change The Form Method From Here-->
             <div class="card-panel grey lighten-5 z-depth-1">
                 <div class="row">
@@ -64,6 +64,16 @@
                             <i class="material-icons prefix">password</i>
                             <input id="password" type="password" name="password" class="validate">
                             <label for="icon_telephone">Password</label>
+                        </div>
+                        <div class="file-field input-field col s12">
+                            <div class="btn col s6">
+                                <i class="material-icons left">camera_front</i>
+                                <span>Procurar</span>
+                                <input type="file" name="file">
+                            </div>
+                            <div class="file-path-wrapper col s6">
+                                <input class="file-path validate " type="text" placeholder="Anexe aqui sua foto">
+                            </div>
                         </div>
                         <div class="col s12 center p-t-5">
                             <button class="btn waves-effect waves-light" type="submit" name="submit">Create account

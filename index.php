@@ -26,15 +26,20 @@
             var elems1 = document.querySelectorAll('.sidenav');
             var instances1 = M.Sidenav.init(elems1);
         });
+        $(document).ready(function() {
+            M.AutoInit();
+            var DateField = MaterialDateTimePicker.create($('#datetime'))
+        });
     </script>
 
 </head>
 
 
 <body class="<?php echo $bodyclass ?>">
-    <?php 
-        include("./php/header.php");
-        header_show(0);
+    <?php
+    include("./php/connect-db.php");
+    include("./php/header.php");
+    header_show(0);
     ?>
 
 
@@ -145,7 +150,7 @@
                                 <td>
                                     <div class="row">
                                         <div class="input-field col s4 m12">
-                                            <input id="date" type="datetime-local" name="date" class="validate">
+                                            <input id="datetime" type="datetime-local" name="date" class="validate">
                                         </div>
                                     </div>
                                 </td>
