@@ -3,10 +3,10 @@
 
 <head>
     <?php
-        include("./php/session-verify.php");
-        if(!is_session_active()){
-            header("Location: ./login.php");
-        };
+    include("./php/session-verify.php");
+    if (!is_session_active()) {
+        header("Location: ./login.php");
+    };
     ?>
     <!--Import Google Icon Font-->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -27,47 +27,20 @@
             var instances1 = M.Sidenav.init(elems1);
         });
     </script>
-    
+
 </head>
 
 
 <body class="<?php echo $bodyclass ?>">
-    <nav>
-        <div class="nav-wrapper">
-            <a href="#!" class="brand-logo">
-            <?php 
-                    include("./php/connect-db.php");
-                    session_start();
-                    $LAVD_ID = $_SESSION["id"];
-    
-                    $result = exec_query("SELECT LAVD_NOME FROM TB_LAVADEIRAS WHERE LAVD_CODIGO = $LAVD_ID");
-                    while($row = $result->fetch_array()){
-                        $name = $row['LAVD_NOME'];
-                        echo "Olá, $name";
-                    };
-                ?>
-            </a>
-            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-            
-            <ul class="right hide-on-med-and-down">
-                <li class = "active"><a href="index.php">Home</a></li>
-                <li><a href="stats.php">Statistics</a></li>
-                <li><a href='./php/logout.php' class='material-icons prefix'>logout</a></li>
-            </ul>
-        </div>
-        
-    </nav>
-    <ul class="sidenav" id="mobile-demo">
-        <li class = "active"><a  href="index.php">Home</a></li>
-        <li><a href="stats.php">Statistics</a></li>
-        <li><a href='./php/logout.php' class='material-icons prefix'>logout</a></li>
+    <?php 
+        include("./php/header.php");
+        header_show(0);
+    ?>
 
-    </ul>
-    
 
-    
-      
-    
+
+
+
 
 
     <div class="container p-t-5">
@@ -83,20 +56,20 @@
             </thead>
 
             <tbody>
-            <?php
-                
+                <?php
+
                 session_start();
                 $LAVD_ID = $_SESSION["id"];
 
                 $result = exec_query("SELECT LAV_CODIGO, LAV_CLIENTENOME, LAV_DATA, LAV_QUANTITY, LAV_VALOR FROM TB_LAVADAS WHERE LAV_LAVD_CODIGO = $LAVD_ID");
-                while($row = $result->fetch_array()){
+                while ($row = $result->fetch_array()) {
                     $name = $row['LAV_CLIENTENOME'];
                     $date = $row['LAV_DATA'];
                     $quantity = $row['LAV_QUANTITY'];
                     $value = $row['LAV_VALOR'];
                     $id = $row['LAV_CODIGO'];
-                    if(isset($_GET['id_change']) &&	$_GET['id_change']== $id){
-                        echo"
+                    if (isset($_GET['id_change']) &&    $_GET['id_change'] == $id) {
+                        echo "
                         <tr>
                         <form action='./php/change-lavadas.php?id=$id' method='POST'>
                             <div class='row'>
@@ -151,12 +124,12 @@
                         </td>";
 
                     echo "</tr>";
-                }   
-            ?>
-            <?php
-            
-            ?>
-                
+                }
+                ?>
+                <?php
+
+                ?>
+
                 <tr>
                     <div class="row">
                         <form action="./php/add-lavadas.php" method="POST">
@@ -192,7 +165,8 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td><div class="row">
+                                <td>
+                                    <div class="row">
                                         <div class="input-field col s4 m12">
                                             <button class="waves-effect waves-light btn-small" type="submit" name="submit">Submit
                                                 <i class="material-icons right">send</i>
