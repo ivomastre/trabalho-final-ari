@@ -81,7 +81,7 @@
                                 <td>
                                     <div class='row'>
                                         <div class='input-field col s4 m12'>
-                                            <input id='name2' type='text' name='name_change' class='validate'>
+                                            <input id='name2' type='text' value = '$name' name='name_change' class='validate'>
                                             <label for='name2'>Client Name</label>
                                         </div>
                                     </div>
@@ -89,14 +89,14 @@
                                 <td>
                                     <div class='row'>
                                         <div class='input-field col s4 m12'>
-                                            <input id='date2' type='datetime-local' name='date_change' class='validate'>
+                                            <input id='date2' type='datetime-local' value = '$date' name='date_change' class='validate'>
                                         </div>
                                     </div>
                                 </td>
                                 <td>
                                     <div class='row'>
                                         <div class='input-field col s4 m12'>
-                                            <input id='quantity2' type='number' name='quantity_change' class='validate'>
+                                            <input id='quantity2' type='number' value = '$quantity' name='quantity_change' class='validate'>
                                             <label for='quantity2'>Quantity</label>
                                         </div>
                                     </div>
@@ -104,7 +104,7 @@
                                 <td>
                                     <div class='row'>
                                         <div class='input-field col s4 m12'>
-                                            <input id='value2' type='number' step='any' name='value_change' class='validate'>
+                                            <input id='value2' type='number' step='any' value = '$value' name='value_change' class='validate'>
                                             <label for='value2'>Value</label>
                                         </div>
                                     </div>
@@ -150,7 +150,9 @@
                                 <td>
                                     <div class="row">
                                         <div class="input-field col s4 m12">
-                                            <input id="datetime" type="datetime-local" name="date" class="validate">
+                                            <input id="datetime" type="datetime-local" value = "<?php 
+                                                   $dt = new DateTime("now", new DateTimeZone('America/Fortaleza'));
+                                                echo $dt->format('Y-m-d H:i:s');?>"name="date" class="validate">
                                         </div>
                                     </div>
                                 </td>

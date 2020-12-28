@@ -38,8 +38,7 @@
         <div class="card-panel grey lighten-5 z-depth-1">
             <div class="row">
                 <div class="col s12 offset-s6">
-                    <img src='data:image/png;base64,
-                    <?php
+                    <img src='data:image/png;base64,<?php
                             session_start();
 
                             $LAVD_ID = $_SESSION['id'];
@@ -50,8 +49,7 @@
                                 $photo = $row["LAVD_IMAGEM"];
                             }
                             echo $photo;
-                            ?>
-                        ' width='65' class='circle responsive-img'>
+                            ?>' width='65' class='circle responsive-img'>
                 </div>
                 <form enctype="multipart/form-data" action="php/change-lavadeiras.php" method="post">
                     <div class="file-field input-field col s12">
